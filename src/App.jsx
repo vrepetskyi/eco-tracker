@@ -1,5 +1,7 @@
 import { GlobalStyles } from "@mui/material";
+import { Box } from "@mui/system";
 import Header from "./components/Header";
+import Todos from "./components/Todos";
 
 export default function App() {
   return (
@@ -12,7 +14,10 @@ export default function App() {
           },
         }}
       />
-      <Header />
+      <Box>
+        <Header />
+        <Todos />
+      </Box>
     </>
   );
 }

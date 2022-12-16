@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <AppBar
-      position="fixed"
+      position="sticky"
       sx={{
         backgroundColor: "#6C804D",
       }}
