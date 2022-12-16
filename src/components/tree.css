@@ -1,0 +1,33 @@
+@keyframes fadeout {
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.tree {
+    position: absolute;
+}
+
+.tree-current {
+    animation: 1s fadeout ease-in-out forwards;
+    z-index: 1;
+}
+
+.tree-next {
+    z-index: 0;
+    animation: 3s fadein ease-in-out forwards;
+}
