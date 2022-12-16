@@ -1,15 +1,16 @@
-import { css, Global } from "@emotion/react";
+import { GlobalStyles } from "@mui/material";
 import Header from "./components/Header";
 
 export default function App() {
   return (
     <>
-      <Global
-        styles={css`
-          body {
-            margin: 0;
-          }
-        `}
+      <GlobalStyles
+        styles={{
+          body: {
+            margin: 0,
+            backgroundColor: "#E5F7D1",
+          },
+        }}
       />
       <Header />
     </>
