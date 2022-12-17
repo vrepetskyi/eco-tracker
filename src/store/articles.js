@@ -5,9 +5,10 @@ export const articles = createSlice({
   initialState: {
     all: [
       {
+        id: 0,
         image: "image_url",
         name: "Article name",
-        url: "some_url",
+        url: "https://www.goodenergy.co.uk/the-ultimate-20-step-guide-to-eco-friendly-living/",
       },
     ],
   },

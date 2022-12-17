@@ -6,32 +6,24 @@ const initialAll = [
   {
     id: 0,
     objective: "Learn about something1...",
-    details: 0, // id of a blog article
-    hash: "hash_to_article_section",
+    articleId: 0, // id of a blog article
+    urlQuery: "#1",
   },
   {
     id: 1,
     objective: "Learn about something2...",
-    details: 0,
-    hash: "hash_to_article_section",
   },
   {
     id: 2,
     objective: "Learn about something3...",
-    details: 0,
-    hash: "hash_to_article_section",
   },
   {
     id: 3,
     objective: "Learn about something4...",
-    details: 0,
-    hash: "hash_to_article_section",
   },
   {
     id: 4,
     objective: "Learn about something5...",
-    details: 0,
-    hash: "hash_to_article_section",
   },
 ];
 
