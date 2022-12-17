@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const TREE_STEP = 3;
 
-
 export default function App() {
   const {completed: {length: completed}} = useSelector((state) => state.todos);
 
@@ -22,9 +21,12 @@ export default function App() {
         }}
       />
       <Header />
-      <Container maxWidth="sm" sx={{ marginTop: 4 }}>
-        <Todos />
+      <Container
+        maxWidth="sm"
+        sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
+      >
         <Tree currentTree={Math.floor(completed / TREE_STEP) % 3} progress={Math.round((completed % TREE_STEP) / TREE_STEP * 100)} />
+        <Todos />
         <EpicChart />
       </Container>
     </>

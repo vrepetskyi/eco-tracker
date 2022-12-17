@@ -1,10 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
-import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Box } from "@mui/system";
 import React from "react";
+import { Box } from "@mui/system";
 
 export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -18,11 +18,12 @@ export default function Header() {
   };
 
   const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (
     <AppBar
+      id="header"
       position="sticky"
       sx={{
         backgroundColor: "#6C804D",
@@ -48,12 +49,19 @@ export default function Header() {
               <Typography>Statistics</Typography>
             </MenuItem>
             <MenuItem onClick={() => scrollTo("events")}>
-              <Typography>Events</Typography>
+              <Typography>Articles</Typography>
             </MenuItem>
           </Menu>
-          <Box sx={{ margin: "auto" }}>
-            <Typography variant="h5">Eco Tracker</Typography>
-          </Box>
+          <Tooltip
+            title="your guide to environmental responsibility"
+            arrow
+            m="auto"
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <img height="64" src="logo.png" alt="logo" />
+              <Typography variant="h5" sx={{ ml: 1, mt: 1 }}>Eco Tracker</Typography>
+            </Box>
+          </Tooltip>
         </Toolbar>
       </Container>
     </AppBar>
