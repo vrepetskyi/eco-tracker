@@ -1,12 +1,4 @@
-import {
-  Button,
-  ButtonBase,
-  Card,
-  Link,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { ButtonBase, Card, Link, Tooltip, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { completeTodo } from "../store/todos";
 

@@ -18,11 +18,12 @@ export default function Header() {
   };
 
   const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (
     <AppBar
+      id="header"
       position="sticky"
       sx={{
         backgroundColor: "#6C804D",

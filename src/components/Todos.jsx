@@ -7,7 +7,7 @@ export default function Todos() {
   const { activeIds, all } = useSelector((state) => state.todos);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+    <Box id="todos" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Tooltip title="they'll teach you how to be eco-friendly" arrow placement="right">
         <Typography width="fit-content" variant="h6">
           Todos
