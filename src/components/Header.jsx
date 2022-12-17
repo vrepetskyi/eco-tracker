@@ -51,11 +51,11 @@ export default function Header() {
             <MenuItem onClick={() => scrollTo("todos")}>
               <Typography>Todos</Typography>
             </MenuItem>
+            <MenuItem onClick={() => scrollTo("articles")}>
+              <Typography>Articles</Typography>
+            </MenuItem>
             <MenuItem onClick={() => scrollTo("statistics")}>
               <Typography>Statistics</Typography>
-            </MenuItem>
-            <MenuItem onClick={() => scrollTo("events")}>
-              <Typography>Articles</Typography>
             </MenuItem>
           </Menu>
           <Tooltip

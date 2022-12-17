@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Todos from "./components/Todos";
 import { useSelector } from "react-redux";
 import Statistics from "./components/Statistics";
+import Articles from "./components/Articles";
 
 const TREE_STEP = 3;
 
@@ -32,6 +33,7 @@ export default function App() {
           progress={Math.round(((completed % TREE_STEP) / TREE_STEP) * 100)}
         />
         <Todos />
+        <Articles />
         <Statistics />
       </Container>
     </>

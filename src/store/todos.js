@@ -24,7 +24,7 @@ const initialAll = [
   },
   {
     id: 4,
-    objective: "Pay contactless",
+    objective: "Make a contactless payment",
   },
 ];
 
