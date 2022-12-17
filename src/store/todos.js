@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const INITIAL_DISPLAY_QUANTITY = 3;
+
 const initialAll = [
   {
     id: 0,
@@ -25,6 +27,12 @@ const initialAll = [
     details: 0,
     hash: "hash_to_article_section",
   },
+  {
+    id: 4,
+    objective: "Learn about something5...",
+    details: 0,
+    hash: "hash_to_article_section",
+  },
 ];
 
 let lsCompleted;
@@ -43,27 +51,45 @@ try {
 
 const isIdValid = (testedId) => initialAll.find(({ id }) => testedId === id);
 
-const initialCompleted = (() => {
-  if (Array.isArray(lsCompleted)) {
-    const isCompletedValid = ({ id, date }) =>
-      date instanceof Date && !isNaN(date) && isIdValid(id);
-
-    return lsCompleted.filter(isCompletedValid);
-  }
-
-  return [];
-})();
-
-const initialActiveIds = (() => {
-  if (Array.isArray(lsActiveIds) && lsActiveIds.length === 3) {
-    return lsActiveIds.filter((id) => isIdValid(id));
-  }
-
-  return [0, 1, 2];
-})();
+const arrayDifference = (array1, array2) =>
+  array1.filter((val) => !array2.includes(val));
 
 const pickRandomElement = (array) =>
   array[Math.floor(Math.random() * array.length)];
+
+const initialCompleted = (() => {
+  if (!Array.isArray(lsCompleted)) {
+    return [];
+  }
+
+  const isCompletedValid = ({ id, date }) =>
+    date instanceof Date && !isNaN(date) && isIdValid(id);
+
+  return lsCompleted.filter(isCompletedValid);
+})();
+
+const initialActiveIds = (() => {
+  if (!Array.isArray(lsActiveIds)) {
+    return [0, 1, 2];
+  }
+
+  const uniqueActiveIds = [
+    ...new Set(lsActiveIds.filter((id) => isIdValid(id))),
+  ];
+
+  while (uniqueActiveIds.length < INITIAL_DISPLAY_QUANTITY) {
+    uniqueActiveIds.push(
+      pickRandomElement(
+        arrayDifference(
+          initialAll.map(({ id }) => id),
+          uniqueActiveIds
+        )
+      )
+    );
+  }
+
+  return uniqueActiveIds;
+})();
 
 export const todos = createSlice({
   name: "todos",
@@ -71,7 +97,7 @@ export const todos = createSlice({
     all: initialAll,
     completed: initialCompleted,
     activeIds: initialActiveIds,
-    DISPLAY_QUANTITY: 3,
+    DISPLAY_QUANTITY: INITIAL_DISPLAY_QUANTITY,
   },
   reducers: {
     completeTodo(state, { payload: completedId }) {
@@ -81,25 +107,21 @@ export const todos = createSlice({
       });
 
       if (state.activeIds.length > state.DISPLAY_QUANTITY) {
-        state.activeIds = state.activeIds.splice(completedId, 1);
+        state.activeIds = state.activeIds.filter((id) => id !== completedId);
         return;
       }
 
-      const undisplayed = state.all.filter(
-        ({ id }) => !state.activeIds.find((activeId) => id === activeId)
+      const undisplayed = arrayDifference(
+        state.all.map(({ id }) => id),
+        state.activeIds
       );
 
       const unseen = undisplayed.filter(
-        ({ id }) =>
-          !state.completed.find(({ id: completedId }) => id === completedId)
+        (id) =>
+          !state.completed.indexOf(({ id: completedId }) => id === completedId)
       );
 
-      state.unseen = unseen;
-      state.undisplayed = undisplayed;
-
-      const pickedId = pickRandomElement(
-        unseen.length ? unseen : undisplayed
-      ).id;
+      const pickedId = pickRandomElement(unseen.length ? unseen : undisplayed);
 
       state.activeIds = state.activeIds.map((id) =>
         id === completedId ? pickedId : id

@@ -15,7 +15,6 @@ export default store;
 
 const syncLocalStorage = () => {
   const state = store.getState();
-  console.log(state)
   localStorage.setItem("completedTodos", JSON.stringify(state.todos.completed));
   localStorage.setItem("activeTodosIds", JSON.stringify(state.todos.activeIds));
 };
