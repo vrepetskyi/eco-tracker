@@ -1,10 +1,15 @@
 import Container from '@mui/material/Container';
 import { Box } from '@mui/system';
+import LinearProgressWithLabel from './LinearProgressWithLabel';
 import { useEffect, useState } from 'react';
 import './tree.css';
 
+const DIMENTIONS = {
+    h: '300px',
+    w: '300px' 
+}
 
-export default function Tree({currentTree}) {
+export default function Tree({currentTree, progress}) {
     const [currentImage, setCurrentImage] = useState(currentTree);
     const [nextImage, setNextImage] = useState(null);
     const [transition, setTransition] = useState(false);
@@ -29,17 +34,23 @@ export default function Tree({currentTree}) {
     console.log('current', currentImage, 'next', nextImage);
 
     return (
-        <Container>
-            <Box>
-            {transition ? (
-                <div>
-                    <img className="tree tree-current" src={`/images/tree${currentImage}.gif`} />
-                    <img className="tree tree-next" src={`/images/tree${nextImage}.gif`} />
-                </div>
-            ) : (
-                <img className="tree" src={`/images/tree${currentImage}.gif`} />
-            )}
+        <Container sx={{ alignItems: 'center'}} maxWidth='sm'>
+            <Box sx={{display: 'flex',flexDirection: 'column', alignItems: 'center'    }}>
+                <Box sx={{ height: DIMENTIONS.h, width: DIMENTIONS.w}}>
+                    {transition ? (
+                        <>   
+                            <img alt="I's a tree bro" sx={{height: '200px'}} className="tree tree-current" src={`/images/tree_${currentImage}.gif`} />
+                            <img alt="I's a tree bro" className="tree tree-next" src={`/images/tree_${nextImage}.gif`} />
+                        </>
+                    ) : (
+                        <img alt="I's a tree bro" className="tree" src={`/images/tree_${currentImage}.gif`} />
+                    )}
+                </Box>
+                <Box>
+                    <LinearProgressWithLabel sx={{height: '20px', width: DIMENTIONS.w}} value={progress} />
+                </Box>
             </Box>
         </Container>
     );
-}   
+}
+
