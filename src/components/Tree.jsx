@@ -3,7 +3,6 @@ import { Box } from "@mui/system";
 import LinearProgressWithLabel from "./LinearProgressWithLabel";
 import { useEffect, useState } from "react";
 import "./tree.css";
-import { Tooltip } from "@mui/material";
 
 const DIMENTIONS = {
   h: "300px",
