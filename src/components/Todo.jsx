@@ -1,10 +1,13 @@
-import { Button, ButtonBase } from "@mui/material";
+import { Button, ButtonBase, Link } from "@mui/material";
 import { Box } from "@mui/system";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { completeTodo } from "../store/todos";
 
-export default function Todo({ id, objective, details, hash }) {
+export default function Todo({ id, objective, articleId, urlQuery }) {
+  const { all: articles } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
+
+  const article = articles.find(({ id }) => id === articleId);
 
   const todoClicked = () => {
     dispatch(completeTodo(id));
@@ -18,7 +21,15 @@ export default function Todo({ id, objective, details, hash }) {
     <Box>
       <ButtonBase onClick={todoClicked}>
         {objective}
-        <Button onClick={detailsClicked}>details</Button>
+        {article && (
+          <Link
+            target="_blank"
+            href={article.url + urlQuery}
+            onClick={detailsClicked}
+          >
+            details
+          </Link>
+        )}
       </ButtonBase>
     </Box>
   );
