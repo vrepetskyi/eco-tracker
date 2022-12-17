@@ -1,6 +1,6 @@
 import { Card, Link, Typography } from "@mui/material";
 
-export default function Article({ id, image, name, url }) {
+export default function Article({ image, name, url }) {
   return (
     <Card>
       <Link
@@ -15,7 +15,6 @@ export default function Article({ id, image, name, url }) {
         <Typography
           m={2}
           sx={{
-            color: "#000000",
             fontWeight: "400",
             overflow: "hidden",
             textOverflow: "ellipsis",

@@ -22,7 +22,7 @@ export default function LinearProgressWithLabel(props) {
             transform: "translateX(-50%)",
           }}
         >
-          <Typography variant="body2" color="text.secondary">{`${Math.round(
+          <Typography variant="body2" color="#ffffff">{`${Math.round(
             props.value
           )}%`}</Typography>
         </Box>

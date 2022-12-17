@@ -91,7 +91,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
                   top: "50%",
                   transform: "translateY(-50%)",
                   height: 2,
-                  backgroundColor: "#6C804D",
+                  backgroundColor: "secondary.main",
                 }}
               />
             </Grow>
@@ -101,7 +101,6 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
               ml="auto"
               target="_blank"
               href={article.url + urlQuery}
-              color="#F9AD57"
               onClick={detailsClicked}
             >
               <Tooltip

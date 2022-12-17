@@ -31,7 +31,8 @@ export default function Header() {
       id="header"
       position="sticky"
       sx={{
-        backgroundColor: "#6C804D",
+        color: "#ffffff",
+        backgroundColor: "secondary.main",
       }}
     >
       <Container maxWidth="sm">
