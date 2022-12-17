@@ -1,6 +1,7 @@
-import { GlobalStyles } from "@mui/material";
+import {GlobalStyles } from "@mui/material";
 import Tree from './components/Tree';
 import Header from "./components/Header";
+import EpicChart from './components/Chart';
 
 export default function App() {
   const tree = 0;
@@ -19,6 +20,7 @@ export default function App() {
       />
       <Header />
       <Tree currentTree={tree} progress={progress} />
+      <EpicChart />
     </>
   );
 }
