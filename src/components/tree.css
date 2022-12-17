@@ -34,3 +34,27 @@
     z-index: 0;
     animation: 1s fadein ease-in-out forwards;
 }
+
+.tree_completed {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 70%;
+    bottom: 70%;
+}
+
+.tree_completed > img {
+    height: 50px;
+    width: 70px;
+    margin-bottom: 16px;
+    position: absolute;
+}
+
+.tree_completed > p {
+    font-size: 25px;
+    color: rgb(40, 100, 40);
+    z-index: 1;
+}

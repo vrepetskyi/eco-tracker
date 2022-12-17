@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import LinearProgressWithLabel from './LinearProgressWithLabel';
 import { useEffect, useState } from 'react';
 import './tree.css';
+import { Typography } from '@mui/material';
 
 const DIMENTIONS = {
     h: '300px',
@@ -11,7 +12,7 @@ const DIMENTIONS = {
 
 let TIMER = false;
 
-export default function Tree({currentTree, progress}) {
+export default function Tree({currentTree, progress, treesCompleted}) {
     const [currentImage, setCurrentImage] = useState(currentTree);
     const [nextImage, setNextImage] = useState(null);
     const [transition, setTransition] = useState(false);
@@ -40,7 +41,7 @@ export default function Tree({currentTree, progress}) {
     console.log('current', currentImage, 'next', nextImage, 'current tree', currentTree);
 
     return (
-        <Container sx={{ alignItems: 'center'}} maxWidth='sm'>
+        <Container sx={{ alignItems: 'center', position: 'relative'}} maxWidth='sm'>
             <Box sx={{display: 'flex',flexDirection: 'column', alignItems: 'center'}}>
                 <Box sx={{ height: DIMENTIONS.h, width: DIMENTIONS.w}}>
                     {transition ? (
@@ -56,6 +57,13 @@ export default function Tree({currentTree, progress}) {
                     <LinearProgressWithLabel sx={{height: '20px', width: DIMENTIONS.w}} value={progress} />
                 </Box>
             </Box>
+
+            <div className='tree_completed'>
+                <img src="/images/leave_border.png" alt="Buh" />
+                <Typography>
+                    {treesCompleted}
+                </Typography>
+            </div>
         </Container>
     );
 }

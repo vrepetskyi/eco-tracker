@@ -25,7 +25,11 @@ export default function App() {
       <Header />
       <Container maxWidth="sm" sx={{ marginTop: 4 }}>
         <Todos />
-        <Tree currentTree={Math.floor(completedL / TREE_STEP) % 3} progress={Math.round((completedL % TREE_STEP) / TREE_STEP * 100)} />
+        <Tree
+          currentTree={Math.floor(completedL / TREE_STEP) % 3}
+          progress={Math.round((completedL % TREE_STEP) / TREE_STEP * 100)}
+          treesCompleted={Math.floor(completedL / TREE_STEP)}
+        />
         <EpicChart completed={completed} />
       </Container>
     </>
