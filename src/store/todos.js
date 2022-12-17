@@ -3,25 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialAll = [
   {
     id: 0,
-    objective: "Learn about something...",
+    objective: "Learn about something1...",
     details: 0, // id of a blog article
     hash: "hash_to_article_section",
   },
   {
     id: 1,
-    objective: "Learn about something...",
+    objective: "Learn about something2...",
     details: 0,
     hash: "hash_to_article_section",
   },
   {
     id: 2,
-    objective: "Learn about something...",
+    objective: "Learn about something3...",
     details: 0,
     hash: "hash_to_article_section",
   },
   {
     id: 3,
-    objective: "Learn about something...",
+    objective: "Learn about something4...",
     details: 0,
     hash: "hash_to_article_section",
   },
@@ -71,6 +71,7 @@ export const todos = createSlice({
     all: initialAll,
     completed: initialCompleted,
     activeIds: initialActiveIds,
+    DISPLAY_QUANTITY: 3,
   },
   reducers: {
     completeTodo(state, { payload: completedId }) {
@@ -79,16 +80,26 @@ export const todos = createSlice({
         date: new Date().toJSON(),
       });
 
-      if (state.activeIds.length > 3) {
+      if (state.activeIds.length > state.DISPLAY_QUANTITY) {
+        state.activeIds = state.activeIds.splice(completedId, 1);
         return;
       }
 
-      const unseen = state.all.filter(
+      const undisplayed = state.all.filter(
+        ({ id }) => !state.activeIds.find((activeId) => id === activeId)
+      );
+
+      const unseen = undisplayed.filter(
         ({ id }) =>
           !state.completed.find(({ id: completedId }) => id === completedId)
       );
 
-      const pickedId = pickRandomElement(unseen.length ? unseen : state.all).id;
+      state.unseen = unseen;
+      state.undisplayed = undisplayed;
+
+      const pickedId = pickRandomElement(
+        unseen.length ? unseen : undisplayed
+      ).id;
 
       state.activeIds = state.activeIds.map((id) =>
         id === completedId ? pickedId : id
