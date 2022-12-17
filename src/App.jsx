@@ -7,8 +7,10 @@ import { useSelector } from "react-redux";
 
 const TREE_STEP = 3;
 
+
 export default function App() {
-  const {completed: {length: completed}} = useSelector((state) => state.todos);
+  const {completed: {length: completedL}} = useSelector((state) => state.todos);
+  const completed = useSelector((state) => state.todos).completed.map(task => (new Date(task.date)));
 
   return (
     <>
@@ -21,13 +23,10 @@ export default function App() {
         }}
       />
       <Header />
-      <Container
-        maxWidth="sm"
-        sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
-      >
-        <Tree currentTree={Math.floor(completed / TREE_STEP) % 3} progress={Math.round((completed % TREE_STEP) / TREE_STEP * 100)} />
+      <Container maxWidth="sm" sx={{ marginTop: 4 }}>
         <Todos />
-        <EpicChart />
+        <Tree currentTree={Math.floor(completedL / TREE_STEP) % 3} progress={Math.round((completedL % TREE_STEP) / TREE_STEP * 100)} />
+        <EpicChart completed={completed} />
       </Container>
     </>
   );
