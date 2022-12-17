@@ -18,7 +18,12 @@ export default function Header() {
   };
 
   const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center" });
+    handleCloseNavMenu();
+    window.setTimeout(() => {
+      document
+        .getElementById(id)
+        .scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 0);
   };
 
   return (
@@ -26,7 +31,8 @@ export default function Header() {
       id="header"
       position="sticky"
       sx={{
-        backgroundColor: "#6C804D",
+        color: "#ffffff",
+        backgroundColor: "secondary.main",
       }}
     >
       <Container maxWidth="sm">
@@ -38,6 +44,7 @@ export default function Header() {
             anchorEl={anchorElNav}
             open={Boolean(anchorElNav)}
             onClose={handleCloseNavMenu}
+            disableScrollLock={true}
           >
             <MenuItem onClick={() => scrollTo("tree")}>
               <Typography>Tree</Typography>
@@ -45,11 +52,11 @@ export default function Header() {
             <MenuItem onClick={() => scrollTo("todos")}>
               <Typography>Todos</Typography>
             </MenuItem>
+            <MenuItem onClick={() => scrollTo("articles")}>
+              <Typography>Articles</Typography>
+            </MenuItem>
             <MenuItem onClick={() => scrollTo("statistics")}>
               <Typography>Statistics</Typography>
-            </MenuItem>
-            <MenuItem onClick={() => scrollTo("events")}>
-              <Typography>Articles</Typography>
             </MenuItem>
           </Menu>
           <Tooltip
@@ -59,7 +66,9 @@ export default function Header() {
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <img height="64" src="logo.png" alt="logo" />
-              <Typography variant="h5" sx={{ ml: 1, mt: 1 }}>Eco Tracker</Typography>
+              <Typography variant="h5" sx={{ ml: 1, mt: 1 }}>
+                Eco Tracker
+              </Typography>
             </Box>
           </Tooltip>
         </Toolbar>

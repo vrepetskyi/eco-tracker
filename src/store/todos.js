@@ -5,25 +5,26 @@ const INITIAL_DISPLAY_QUANTITY = 3;
 const initialAll = [
   {
     id: 0,
-    objective: "Learn about something1...",
-    articleId: 0, // id of a blog article
-    urlQuery: "#1",
+    objective: "Learn how to dispose of properly",
+    articleId: 0,
   },
   {
     id: 1,
-    objective: "Learn about something2...",
+    objective: "Learn how to be energy efficient at home",
+    articleId: 1,
   },
   {
     id: 2,
-    objective: "Learn about something3...",
+    objective: "Learn how to adjust your shopping habbits",
+    articleId: 2,
   },
   {
     id: 3,
-    objective: "Learn about something4...",
+    objective: "Use an electronic ticket",
   },
   {
     id: 4,
-    objective: "Learn about something5...",
+    objective: "Make a contactless payment",
   },
 ];
 

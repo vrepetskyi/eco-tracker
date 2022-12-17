@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import { completeTodo } from "../store/todos";
 
-export default function Todo({ id, objective, articleId, urlQuery }) {
+export default function Todo({ id, objective, articleId, urlQuery = "" }) {
   const { all: articles } = useSelector((state) => state.articles);
   const dispatch = useDispatch();
   const [complete, setComplete] = React.useState(false);
@@ -101,10 +101,13 @@ export default function Todo({ id, objective, articleId, urlQuery }) {
               ml="auto"
               target="_blank"
               href={article.url + urlQuery}
-              color="#F9AD57"
               onClick={detailsClicked}
             >
-              <Tooltip title="we've found an article for you" arrow>
+              <Tooltip
+                title="we've found an article for you"
+                arrow
+                placement="bottom-end"
+              >
                 <Typography>how?</Typography>
               </Tooltip>
             </Link>
