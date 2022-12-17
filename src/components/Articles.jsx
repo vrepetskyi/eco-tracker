@@ -23,7 +23,7 @@ export default function Articles() {
       </Tooltip>
       <Carousel>
         {articles.map((article) => (
-          <Article {...article} />
+          <Article key={article.id} {...article} />
         ))}
       </Carousel>
     </Box>

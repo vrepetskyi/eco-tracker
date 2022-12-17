@@ -91,7 +91,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
                   top: "50%",
                   transform: "translateY(-50%)",
                   height: 2,
-                  backgroundColor: "secondary.main",
+                  backgroundColor: "#6C804D",
                 }}
               />
             </Grow>

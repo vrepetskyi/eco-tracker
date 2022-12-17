@@ -21,6 +21,18 @@ export default function App() {
             margin: 0,
             backgroundColor: "#E5F7D1",
           },
+          "::-webkit-scrollbar": {
+            width: "10px",
+          },
+          "::-webkit-scrollbar-track": {
+            background: "#BBBBBB",
+          },
+          "::-webkit-scrollbar-thumb": {
+            background: "#999999",
+          },
+          "::-webkit-scrollbar-thumb:hover": {
+            background: "#77934d",
+          },
         }}
       />
       <Header />
