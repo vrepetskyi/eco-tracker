@@ -104,7 +104,11 @@ export default function Todo({ id, objective, articleId, urlQuery }) {
               color="#F9AD57"
               onClick={detailsClicked}
             >
-              <Tooltip title="we've found an article for you" arrow>
+              <Tooltip
+                title="we've found an article for you"
+                arrow
+                placement="bottom-end"
+              >
                 <Typography>how?</Typography>
               </Tooltip>
             </Link>

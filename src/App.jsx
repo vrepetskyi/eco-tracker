@@ -1,14 +1,16 @@
 import { Container, GlobalStyles } from "@mui/material";
-import Tree from './components/Tree';
+import Tree from "./components/Tree";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
-import EpicChart from './components/Chart';
 import { useSelector } from "react-redux";
+import Statistics from "./components/Statistics";
 
 const TREE_STEP = 3;
 
 export default function App() {
-  const {completed: {length: completed}} = useSelector((state) => state.todos);
+  const {
+    completed: { length: completed },
+  } = useSelector((state) => state.todos);
 
   return (
     <>
@@ -17,7 +19,7 @@ export default function App() {
           body: {
             margin: 0,
             backgroundColor: "#E5F7D1",
-          }
+          },
         }}
       />
       <Header />
@@ -25,9 +27,12 @@ export default function App() {
         maxWidth="sm"
         sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
-        <Tree currentTree={Math.floor(completed / TREE_STEP) % 3} progress={Math.round((completed % TREE_STEP) / TREE_STEP * 100)} />
+        <Tree
+          currentTree={Math.floor(completed / TREE_STEP) % 3}
+          progress={Math.round(((completed % TREE_STEP) / TREE_STEP) * 100)}
+        />
         <Todos />
-        <EpicChart />
+        <Statistics />
       </Container>
     </>
   );
