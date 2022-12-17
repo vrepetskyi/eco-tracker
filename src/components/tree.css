@@ -5,6 +5,7 @@
 
     100% {
         opacity: 0%;
+        display: none;
     }
 }
 
@@ -31,5 +32,5 @@
 
 .tree-next {
     z-index: 0;
-    animation: 3s fadein ease-in-out forwards;
+    animation: 1s fadein ease-in-out forwards;
 }

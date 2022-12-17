@@ -9,6 +9,8 @@ const DIMENTIONS = {
     w: '300px' 
 }
 
+let TIMER = false;
+
 export default function Tree({currentTree, progress}) {
     const [currentImage, setCurrentImage] = useState(currentTree);
     const [nextImage, setNextImage] = useState(null);
@@ -19,27 +21,31 @@ export default function Tree({currentTree, progress}) {
         setNextImage(currentTree);
         setTransition(true);
         }
-    }, [currentTree, currentImage]);
+    }, [currentTree, currentImage, progress]);
 
     useEffect(() => {
-        if (transition) {
-        setTimeout(() => {
-            setCurrentImage(nextImage);
-            setNextImage(null);
-            setTransition(false);
-        }, 3000);
-        }
-    }, [transition, nextImage]);
+        // First 3 work normally then it fucks up
+        if (transition && !TIMER) {
+            setTimeout(() => {
+                setCurrentImage(nextImage);
+                setNextImage(null);
+                setTransition(false);
 
-    console.log('current', currentImage, 'next', nextImage);
+                TIMER = false;
+            }, 1000);
+            TIMER = true;
+        }
+    }, [transition, nextImage, progress]);
+
+    console.log('current', currentImage, 'next', nextImage, 'current tree', currentTree);
 
     return (
         <Container sx={{ alignItems: 'center'}} maxWidth='sm'>
-            <Box sx={{display: 'flex',flexDirection: 'column', alignItems: 'center'    }}>
+            <Box sx={{display: 'flex',flexDirection: 'column', alignItems: 'center'}}>
                 <Box sx={{ height: DIMENTIONS.h, width: DIMENTIONS.w}}>
                     {transition ? (
                         <>   
-                            <img alt="I's a tree bro" sx={{height: '200px'}} className="tree tree-current" src={`/images/tree_${currentImage}.gif`} />
+                            <img alt="I's a tree bro" className="tree tree-current" src={`/images/tree_${currentImage}.gif`} />
                             <img alt="I's a tree bro" className="tree tree-next" src={`/images/tree_${nextImage}.gif`} />
                         </>
                     ) : (
