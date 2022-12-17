@@ -1,18 +1,26 @@
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../store/completedTodos";
+import { completeTodo } from "../store/todos";
 
 export default function Todos() {
-  const { number: completedTodosNumber } = useSelector(
-    (state) => state.completedTodos
-  );
+  const { completed, activeIds, all } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   return (
     <Box>
-      <Button onClick={() => dispatch(add(1))}>Increment</Button>
-      <Button onClick={() => alert(completedTodosNumber)}>GetValue</Button>
+      <Button onClick={() => dispatch(completeTodo(0))}>Increment</Button>
+      <Button
+        onClick={() =>
+          alert(
+            `${JSON.stringify(completed)},
+            ${JSON.stringify(activeIds)},
+            ${JSON.stringify(all)}`
+          )
+        }
+      >
+        GetValue
+      </Button>
     </Box>
   );
 }
