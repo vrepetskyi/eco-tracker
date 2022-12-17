@@ -1,5 +1,4 @@
 import { Container, GlobalStyles } from "@mui/material";
-import { Box } from "@mui/system";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
 
@@ -15,7 +14,10 @@ export default function App() {
         }}
       />
       <Header />
-      <Container maxWidth="sm" sx={{ marginTop: 4 }}>
+      <Container
+        maxWidth="sm"
+        sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
+      >
         <Todos />
       </Container>
     </>
