@@ -43,9 +43,6 @@ export default function App() {
     }, 3000);
   }, [completedTodosNumber]);
 
-  // TODO move inside of components
-  const completedNumber = completedTodosNumber;
-
   return (
     <>
       <GlobalStyles
@@ -78,11 +75,11 @@ export default function App() {
         sx={{ my: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
         <Trees
-          currentTree={Math.floor(completedNumber / DISPLAY_QUANTITY) % 3}
-          progress={Math.round(
-            ((completedNumber % DISPLAY_QUANTITY) / DISPLAY_QUANTITY) * 100
+          currentTree={completedTodosNumber % 3}
+          progress={Math.floor(
+            ((completedTodosNumber % DISPLAY_QUANTITY) / DISPLAY_QUANTITY) * 100
           )}
-          treesCompleted={Math.floor(completedNumber / DISPLAY_QUANTITY)}
+          treesCompleted={Math.floor(completedTodosNumber / DISPLAY_QUANTITY)}
         />
         <Todos />
         <Articles />
