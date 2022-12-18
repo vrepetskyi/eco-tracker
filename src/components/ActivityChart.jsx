@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { useEffect, useState } from "react";
 
-const DAYS_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const DAYS_NAMES = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 const index = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
 
 export default function ActivityChart() {

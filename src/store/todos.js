@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { pickRandomElement } from "../helpers";
+import { arrayDifference, mapIds, pickRandomElement } from "../helpers";
 
 const INITIAL_DISPLAY_QUANTITY = 3;
 
@@ -44,9 +44,6 @@ try {
 }
 
 const isIdValid = (testedId) => initialAll.find(({ id }) => testedId === id);
-
-const arrayDifference = (array1, array2) =>
-  array1.filter((val) => !array2.includes(val));
 
 const initialCompleted = (() => {
   if (!Array.isArray(lsCompleted)) {
@@ -102,10 +99,7 @@ export const todos = createSlice({
         return;
       }
 
-      const undisplayed = arrayDifference(
-        state.all.map(({ id }) => id),
-        state.activeIds
-      );
+      const undisplayed = arrayDifference(mapIds(state.all), state.activeIds);
 
       const unseen = undisplayed.filter(
         (id) =>

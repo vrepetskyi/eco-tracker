@@ -1,8 +1,16 @@
+import { useSelector } from "react-redux";
 import { Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import ActivityChart from "./ActivityChart";
+import { arrayDifference, mapIds } from "../helpers";
 
 export default function Statistics() {
+  const { completed, all } = useSelector((state) => state.todos);
+
+  const completedProportion =
+    (all.length - arrayDifference(mapIds(all), mapIds(completed)).length) /
+    all.length;
+
   return (
     <Box
       id="statistics"
@@ -17,6 +25,9 @@ export default function Statistics() {
           Statistics
         </Typography>
       </Tooltip>
+      <Typography>
+        Completed todos / all todos = {Math.floor(completedProportion * 100)}%
+      </Typography>
       <ActivityChart />
     </Box>
   );
