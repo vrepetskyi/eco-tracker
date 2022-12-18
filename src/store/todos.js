@@ -56,7 +56,7 @@ const initialCompleted = (() => {
   }
 
   const isCompletedValid = ({ id, date }) =>
-    date instanceof Date && !isNaN(date) && isIdValid(id);
+    !isNaN(Date.parse(date)) && isIdValid(id);
 
   return lsCompleted.filter(isCompletedValid);
 })();

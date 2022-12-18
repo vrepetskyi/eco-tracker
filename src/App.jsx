@@ -9,11 +9,10 @@ import Articles from "./components/Articles";
 const TREE_STEP = 3;
 
 export default function App() {
-  const {
-    completed: { length: completedL },
-    ...rest
-  } = useSelector((state) => state.todos);
-  console.log(rest);
+  const { completed } = useSelector((state) => state.todos);
+  console.log(completed, completed.length);
+
+  const completedNumber = completed.length;
 
   return (
     <>
@@ -47,9 +46,11 @@ export default function App() {
         sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
         <Trees
-          currentTree={Math.floor(completedL / TREE_STEP) % 3}
-          progress={Math.round(((completedL % TREE_STEP) / TREE_STEP) * 100)}
-          treesCompleted={Math.floor(completedL / TREE_STEP)}
+          currentTree={Math.floor(completedNumber / TREE_STEP) % 3}
+          progress={Math.round(
+            ((completedNumber % TREE_STEP) / TREE_STEP) * 100
+          )}
+          treesCompleted={Math.floor(completedNumber / TREE_STEP)}
         />
         <Todos />
         <Articles />
