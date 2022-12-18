@@ -17,7 +17,7 @@ export default function ProgressBar({ percentage, sx }) {
           <LinearProgress
             value={percentage}
             variant="determinate"
-            sx={{ ...sx, height: "24px", maxWidth: "100%" }}
+            sx={{ ...sx, height: "24px", maxWidth: "100%", borderRadius: "4px" }}
           />
         </Box>
         <Box
