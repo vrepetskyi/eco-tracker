@@ -82,7 +82,7 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
             src="/images/leaf-circle.png"
             alt="completed trees counter decoration"
           />
-          <Typography>{treesCompleted}</Typography>
+          <Typography color="text.primary">{treesCompleted}</Typography>
         </div>
       </Tooltip>
     </Container>

@@ -58,6 +58,9 @@ export default function Header() {
             <MenuItem onClick={() => scrollTo("statistics")}>
               <Typography>Statistics</Typography>
             </MenuItem>
+            <MenuItem onClick={() => scrollTo("credits")}>
+              <Typography>Credits</Typography>
+            </MenuItem>
           </Menu>
           <Tooltip
             title="your guide to environmental responsibility"

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Statistics from "./components/Statistics";
 import Articles from "./components/Articles";
 import { pickRandomElement } from "./helpers";
+import Credits from "./components/Credits";
 
 let previousCompletedTodosNumber = null;
 export default function App() {
@@ -61,10 +62,10 @@ export default function App() {
             height: "10px",
           },
           "::-webkit-scrollbar-track": {
-            backgroundColor: "#BBBBBB",
+            backgroundColor: "#9cb287",
           },
           "::-webkit-scrollbar-thumb": {
-            backgroundColor: "#999999",
+            backgroundColor: "#7b946d",
           },
           "::-webkit-scrollbar-thumb:hover": {
             backgroundColor: "#77934d",
@@ -74,7 +75,7 @@ export default function App() {
       <Header />
       <Container
         maxWidth="sm"
-        sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
+        sx={{ my: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
         <Trees
           currentTree={Math.floor(completedNumber / DISPLAY_QUANTITY) % 3}
@@ -86,6 +87,8 @@ export default function App() {
         <Todos />
         <Articles />
         <Statistics />
+        <Credits />
+
         <Fade in={isMessageDisplayed} timeout={1000}>
           <Alert
             severity="success"

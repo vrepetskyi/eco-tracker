@@ -51,7 +51,6 @@
 .tree_completed > p {
   position: absolute;
   top: 24px;
-  font-size: 25px;
-  color: rgb(40, 100, 40);
+  font-size: 24px;
   z-index: 1;
 }
