@@ -1,6 +1,6 @@
-import { Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
+import SectionTitle from "./SectionTitle";
 import TodoCard from "./TodoCard";
 
 export default function Todos() {
@@ -8,17 +8,10 @@ export default function Todos() {
 
   return (
     <Box id="todos" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-      <Tooltip
-        enterTouchDelay={0}
-        tabindex={0}
-        title="they'll teach you how to be eco-friendly"
-        arrow
-        placement="right"
-      >
-        <Typography width="fit-content" variant="h6">
-          Todos
-        </Typography>
-      </Tooltip>
+      <SectionTitle hint="they'll teach you how to be eco-friendly">
+        Todos
+      </SectionTitle>
+
       {activeIds.map((id) => (
         <TodoCard key={id} {...all[id]} />
       ))}

@@ -1,9 +1,9 @@
 import React from "react";
-import { Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
 import ArticleCard from "./ArticleCard";
 import Carousel from "react-material-ui-carousel";
+import SectionTitle from "./SectionTitle";
 
 export default function Articles() {
   const { all: articles } = useSelector((state) => state.articles);
@@ -23,18 +23,9 @@ export default function Articles() {
       id="articles"
       sx={{ display: "flex", flexDirection: "column", gap: 1 }}
     >
-      <Tooltip
-        enterTouchDelay={0}
-        tabindex={0}
-        role="header"
-        title="some educational articles that we've found for you"
-        arrow
-        placement="right"
-      >
-        <Typography width="fit-content" variant="h6">
-          Articles
-        </Typography>
-      </Tooltip>
+      <SectionTitle hint="some educational articles that we've found for you">
+        Articles
+      </SectionTitle>
 
       {/* TODO replace with lazy-loading compatable one */}
       <Carousel>

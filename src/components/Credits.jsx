@@ -4,10 +4,10 @@ import {
   IconButton,
   Link,
   Stack,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import SectionTitle from "./SectionTitle";
 
 export default function Credits() {
   return (
@@ -19,31 +19,30 @@ export default function Credits() {
         gap: 1,
       }}
     >
-      <Tooltip
-        enterTouchDelay={0}
-        tabindex={0}
-        title="a few words about us"
-        arrow
-        placement="right"
-      >
-        <Typography width="fit-content" variant="h6">
-          Credits
-        </Typography>
-      </Tooltip>
+      <SectionTitle hint="a few words about us">Credits</SectionTitle>
 
       <Stack>
-        <Typography>- Taisia Leonenkova // Animator & Web Designer</Typography>
         <Typography>
           -{" "}
-          <Link
-            target="_blank"
-            href="https://www.instagram.com/vikakomarnutska/"
-          >
-            Viktoria Komarnytska
+          <Link target="_blank" href="https://instagram.com/allia.ri">
+            Taisia Leonenkova
+          </Link>
+          {" // Animator & Web Designer"}
+        </Typography>
+        <Typography>
+          -{" "}
+          <Link target="_blank" href="https://instagram.com/v_komarnutska">
+            Viktoria Komarnutska
           </Link>
           {" // Graphical Designer"}
         </Typography>
-        <Typography>- Dominik Małkowiak // Developer</Typography>
+        <Typography>
+          -{" "}
+          <Link target="_blank" href="https://github.com/Dominikkm">
+            Dominik Małkowiak
+          </Link>
+          {" // Developer"}
+        </Typography>
         <Typography>
           -{" "}
           <Link target="_blank" href="https://www.instagram.com/hurdygurdyyy/">

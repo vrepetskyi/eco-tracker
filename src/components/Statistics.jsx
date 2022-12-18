@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
-import { Tooltip, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import ActivityChart from "./ActivityChart";
 import { arrayDifference, mapIds } from "../helpers";
+import SectionTitle from "./SectionTitle";
 
 export default function Statistics() {
   const { completed, all } = useSelector((state) => state.todos);
@@ -20,17 +21,8 @@ export default function Statistics() {
         gap: 1,
       }}
     >
-      <Tooltip
-        enterTouchDelay={0}
-        tabindex={0}
-        title="analyze your progress"
-        arrow
-        placement="right"
-      >
-        <Typography width="fit-content" variant="h6">
-          Statistics
-        </Typography>
-      </Tooltip>
+      <SectionTitle hint="analyze your progress">Statistics</SectionTitle>
+
       <Typography>
         Completed todos / all todos = {Math.floor(completedProportion * 100)}%
       </Typography>
