@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { pickRandomElement } from "../helpers";
 
 const INITIAL_DISPLAY_QUANTITY = 3;
 
@@ -46,9 +47,6 @@ const isIdValid = (testedId) => initialAll.find(({ id }) => testedId === id);
 
 const arrayDifference = (array1, array2) =>
   array1.filter((val) => !array2.includes(val));
-
-const pickRandomElement = (array) =>
-  array[Math.floor(Math.random() * array.length)];
 
 const initialCompleted = (() => {
   if (!Array.isArray(lsCompleted)) {

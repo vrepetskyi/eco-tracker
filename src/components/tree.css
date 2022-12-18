@@ -45,12 +45,12 @@
 }
 
 .tree_completed > img {
-  height: 50px;
+  height: 64px;
 }
 
 .tree_completed > p {
   position: absolute;
-  top: 16px;
+  top: 24px;
   font-size: 25px;
   color: rgb(40, 100, 40);
   z-index: 1;

@@ -71,7 +71,7 @@ export default function ActivityChart() {
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="5 10" />
         <XAxis dataKey="name" />
-        <YAxis allowDecimals={false} width={20} />
+        <YAxis allowDecimals={false} width={32} />
         <Tooltip />
         <Bar dataKey="tasks" fill="#EFA16C" name="Tasks completed" />
       </BarChart>

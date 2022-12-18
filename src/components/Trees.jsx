@@ -37,15 +37,6 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
     }
   }, [transition, nextImage, progress]);
 
-  console.log(
-    "current",
-    currentImage,
-    "next",
-    nextImage,
-    "current tree",
-    currentTree
-  );
-
   return (
     <Container
       id="trees"
