@@ -4,27 +4,31 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Tooltip } from "@mui/material";
 
-export default function LinearProgressWithLabel(props) {
+export default function ProgressBar({ percentage, sx }) {
   return (
     <Tooltip
       title="complete todos to grow trees"
       arrow
       sx={{ display: "flex", alignItems: "center" }}
     >
-      <Box>
+      <Box sx={{ position: "relative" }}>
         <Box sx={{ width: "100%" }}>
-          <LinearProgress variant="determinate" {...props} />
+          <LinearProgress
+            value={percentage}
+            variant="determinate"
+            sx={{ ...sx, height: "24px", maxWidth: "100%" }}
+          />
         </Box>
         <Box
           sx={{
+            mt: "1px",
             position: "absolute",
             left: "50%",
-            transform: "translateX(-50%)",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
           }}
         >
-          <Typography variant="body2" color="#ffffff">{`${Math.round(
-            props.value
-          )}%`}</Typography>
+          <Typography variant="body2">{percentage + "%"}</Typography>
         </Box>
       </Box>
     </Tooltip>

@@ -9,8 +9,8 @@ export default function Article({ image, name, url }) {
       >
         <img
           src={image}
-          alt={name}
-          style={{ height: 220, objectFit: "cover" }}
+          alt={name + " article preview"}
+          style={{ height: 220, objectFit: "cover", filter: "grayscale(0.5)" }}
         />
         <Typography
           m={2}

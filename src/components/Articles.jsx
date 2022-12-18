@@ -1,7 +1,7 @@
 import { Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
-import Article from "./Article";
+import ArticleCard from "./ArticleCard";
 import Carousel from "react-material-ui-carousel";
 
 export default function Articles() {
@@ -23,7 +23,7 @@ export default function Articles() {
       </Tooltip>
       <Carousel>
         {articles.map((article) => (
-          <Article key={article.id} {...article} />
+          <ArticleCard key={article.id} {...article} />
         ))}
       </Carousel>
     </Box>

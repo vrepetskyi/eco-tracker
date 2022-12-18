@@ -58,9 +58,19 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
             <Box>
               <Checkbox
                 checked={complete}
-                icon={<img height="18" src="rectangle.png" alt="checkbox" />}
+                icon={
+                  <img
+                    height="18"
+                    src="images/checkbox-frame.png"
+                    alt="checkbox frame"
+                  />
+                }
                 checkedIcon={
-                  <img height="18" src="rectangle.png" alt="checkbox" />
+                  <img
+                    height="18"
+                    src="images/checkbox-frame.png"
+                    alt="checkbox frame"
+                  />
                 }
               />
               <Grow
@@ -72,7 +82,11 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
                   left: 36,
                 }}
               >
-                <img src="leaf.svg" alt="checkbox-tick" height="24" />
+                <img
+                  src="images/leaf-tick.svg"
+                  alt="checkbox tick"
+                  height="24"
+                />
               </Grow>
             </Box>
           </Tooltip>

@@ -1,60 +1,57 @@
 @keyframes fadeout {
-    0% {
-        opacity: 100%;
-    }
+  0% {
+    opacity: 100%;
+  }
 
-    100% {
-        opacity: 0%;
-        display: none;
-    }
+  100% {
+    opacity: 0%;
+    display: none;
+  }
 }
 
 @keyframes fadein {
-    0% {
-        opacity: 0%;
-    }
+  0% {
+    opacity: 0%;
+  }
 
-    100% {
-        opacity: 100%;
-    }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .tree {
-    position: absolute;
-    width: 300px;
-    height: 300px;
+  position: absolute;
+  width: 300px;
+  height: 300px;
 }
 
 .tree-current {
-    animation: 1s fadeout ease-in-out forwards;
-    z-index: 1;
+  animation: 1s fadeout ease-in-out forwards;
+  z-index: 1;
 }
 
 .tree-next {
-    z-index: 0;
-    animation: 1s fadein ease-in-out forwards;
+  z-index: 0;
+  animation: 1s fadein ease-in-out forwards;
 }
 
 .tree_completed {
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 70%;
-    bottom: 70%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0px;
+  top: 0px;
 }
 
 .tree_completed > img {
-    height: 50px;
-    width: 70px;
-    margin-bottom: 16px;
-    position: absolute;
+  height: 50px;
 }
 
 .tree_completed > p {
-    font-size: 25px;
-    color: rgb(40, 100, 40);
-    z-index: 1;
+  position: absolute;
+  top: 16px;
+  font-size: 25px;
+  color: rgb(40, 100, 40);
+  z-index: 1;
 }

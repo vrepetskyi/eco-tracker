@@ -1,9 +1,9 @@
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
-import LinearProgressWithLabel from "./LinearProgressWithLabel";
+import ProgressBar from "./ProgressBar";
 import { useEffect, useState } from "react";
 import "./tree.css";
-import { Typography } from "@mui/material";
+import { Tooltip, Typography } from "@mui/material";
 
 const DIMENTIONS = {
   h: "300px",
@@ -25,7 +25,6 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
   }, [currentTree, currentImage, progress]);
 
   useEffect(() => {
-    // First 3 work normally then it fucks up
     if (transition && !TIMER) {
       setTimeout(() => {
         setCurrentImage(nextImage);
@@ -59,36 +58,41 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
           {transition ? (
             <>
               <img
-                alt="I's a tree bro"
+                alt="young tree"
                 className="tree tree-current"
-                src={`/images/tree_${currentImage}.gif`}
+                src={`/images/tree-${currentImage}.gif`}
               />
               <img
-                alt="I's a tree bro"
+                alt="growing tree"
                 className="tree tree-next"
-                src={`/images/tree_${nextImage}.gif`}
+                src={`/images/tree-${nextImage}.gif`}
               />
             </>
           ) : (
             <img
-              alt="I's a tree bro"
+              alt="grown tree"
               className="tree"
-              src={`/images/tree_${currentImage}.gif`}
+              src={`/images/tree-${currentImage}.gif`}
             />
           )}
         </Box>
         <Box>
-          <LinearProgressWithLabel
-            sx={{ height: "20px", width: DIMENTIONS.w }}
-            value={progress}
+          <ProgressBar
+            sx={{ mt: 2, width: DIMENTIONS.w }}
+            percentage={progress}
           />
         </Box>
       </Box>
 
-      <div className="tree_completed">
-        <img src="/images/leave_border.png" alt="Buh" />
-        <Typography>{treesCompleted}</Typography>
-      </div>
+      <Tooltip title="your full-grown trees" arrow placement="bottom-end">
+        <div className="tree_completed">
+          <img
+            src="/images/leaf-circle.png"
+            alt="completed trees counter decoration"
+          />
+          <Typography>{treesCompleted}</Typography>
+        </div>
+      </Tooltip>
     </Container>
   );
 }

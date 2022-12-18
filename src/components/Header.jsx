@@ -47,7 +47,7 @@ export default function Header() {
             disableScrollLock={true}
           >
             <MenuItem onClick={() => scrollTo("tree")}>
-              <Typography>Tree</Typography>
+              <Typography>Trees</Typography>
             </MenuItem>
             <MenuItem onClick={() => scrollTo("todos")}>
               <Typography>Todos</Typography>
@@ -65,7 +65,7 @@ export default function Header() {
             m="auto"
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <img height="64" src="logo.png" alt="logo" />
+              <img height="32" src="logo192.png" alt="Eco Tracker logo" />
               <Typography variant="h5" sx={{ ml: 1, mt: 1 }}>
                 Eco Tracker
               </Typography>

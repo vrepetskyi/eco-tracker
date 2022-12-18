@@ -1,20 +1,24 @@
 import { Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
-import Todo from "./Todo";
+import TodoCard from "./TodoCard";
 
 export default function Todos() {
   const { activeIds, all } = useSelector((state) => state.todos);
 
   return (
     <Box id="todos" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-      <Tooltip title="they'll teach you how to be eco-friendly" arrow placement="right">
+      <Tooltip
+        title="they'll teach you how to be eco-friendly"
+        arrow
+        placement="right"
+      >
         <Typography width="fit-content" variant="h6">
           Todos
         </Typography>
       </Tooltip>
       {activeIds.map((id) => (
-        <Todo key={id} {...all[id]} />
+        <TodoCard key={id} {...all[id]} />
       ))}
     </Box>
   );

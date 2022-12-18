@@ -1,5 +1,5 @@
 import { Container, GlobalStyles } from "@mui/material";
-import Tree from "./components/Tree";
+import Trees from "./components/Trees";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
 import { useSelector } from "react-redux";
@@ -11,27 +11,33 @@ const TREE_STEP = 3;
 export default function App() {
   const {
     completed: { length: completedL },
+    ...rest
   } = useSelector((state) => state.todos);
+  console.log(rest);
 
   return (
     <>
       <GlobalStyles
         styles={{
+          "*": {
+            fontFamily: "'Josefin Sans', sans-serif",
+          },
           body: {
             margin: 0,
             backgroundColor: "#E5F7D1",
           },
           "::-webkit-scrollbar": {
             width: "10px",
+            height: "10px",
           },
           "::-webkit-scrollbar-track": {
-            background: "#BBBBBB",
+            backgroundColor: "#BBBBBB",
           },
           "::-webkit-scrollbar-thumb": {
-            background: "#999999",
+            backgroundColor: "#999999",
           },
           "::-webkit-scrollbar-thumb:hover": {
-            background: "#77934d",
+            backgroundColor: "#77934d",
           },
         }}
       />
@@ -40,7 +46,7 @@ export default function App() {
         maxWidth="sm"
         sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
-        <Tree
+        <Trees
           currentTree={Math.floor(completedL / TREE_STEP) % 3}
           progress={Math.round(((completedL % TREE_STEP) / TREE_STEP) * 100)}
           treesCompleted={Math.floor(completedL / TREE_STEP)}
