@@ -17,7 +17,7 @@ export default function Statistics() {
           Statistics
         </Typography>
       </Tooltip>
-      {/* <ActivityChart /> */}
+      <ActivityChart />
     </Box>
   );
 }

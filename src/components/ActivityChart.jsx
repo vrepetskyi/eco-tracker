@@ -14,10 +14,10 @@ const DAYS_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const index = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
 
 export default function ActivityChart() {
-  const completed = useSelector((state) => state.todos).completed.map(
-    (task) => new Date(task.date)
-  );
+  const { completed } = useSelector((state) => state.todos);
   const [data, setData] = useState([]);
+
+  const completedDates = completed.map((task) => new Date(task.date));
 
   useEffect(() => {
     const dataInit = [];
@@ -56,7 +56,7 @@ export default function ActivityChart() {
       dayBegin.setDate(dayBegin.getDate() - 1);
       dayEnd.setDate(dayEnd.getDate() - 1);
 
-      for (const date of completed) {
+      for (const date of completedDates) {
         if (date > dayBegin && date < dayEnd) {
           dataInit[i].tasks += 1;
         }
