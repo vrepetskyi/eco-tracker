@@ -76,7 +76,12 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
         </Box>
       </Box>
 
-      <Tooltip title="your full-grown trees" arrow placement="bottom-end">
+      <Tooltip
+        enterTouchDelay={0}
+        title="your full-grown trees"
+        arrow
+        placement="bottom-end"
+      >
         <div className="tree_completed">
           <img
             src="/images/leaf-circle.png"

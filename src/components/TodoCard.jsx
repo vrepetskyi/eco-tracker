@@ -51,6 +51,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
           onClick={todoClicked}
         >
           <Tooltip
+            enterTouchDelay={0}
             title="have you really done it?"
             arrow
             placement="bottom-start"
@@ -118,6 +119,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
               onClick={detailsClicked}
             >
               <Tooltip
+                enterTouchDelay={0}
                 title="we've found an article for you"
                 arrow
                 placement="bottom-end"

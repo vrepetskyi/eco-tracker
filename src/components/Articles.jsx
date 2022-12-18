@@ -13,6 +13,7 @@ export default function Articles() {
       sx={{ display: "flex", flexDirection: "column", gap: 1 }}
     >
       <Tooltip
+        enterTouchDelay={0}
         title="some educational articles that we've found for you"
         arrow
         placement="right"

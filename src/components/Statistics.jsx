@@ -20,7 +20,12 @@ export default function Statistics() {
         gap: 1,
       }}
     >
-      <Tooltip title="analyze your progress" arrow placement="right">
+      <Tooltip
+        enterTouchDelay={0}
+        title="analyze your progress"
+        arrow
+        placement="right"
+      >
         <Typography width="fit-content" variant="h6">
           Statistics
         </Typography>

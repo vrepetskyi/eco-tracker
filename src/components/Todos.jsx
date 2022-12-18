@@ -9,6 +9,7 @@ export default function Todos() {
   return (
     <Box id="todos" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
       <Tooltip
+        enterTouchDelay={0}
         title="they'll teach you how to be eco-friendly"
         arrow
         placement="right"
