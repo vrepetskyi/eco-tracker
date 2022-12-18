@@ -4,12 +4,12 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Tooltip } from "@mui/material";
 
-export default function ProgressBar({ percentage, sx }) {
+export default function ProgressBar({ percentage, sx, hint }) {
   return (
     <Tooltip
       enterTouchDelay={0}
       tabIndex={0}
-      title="complete todos to grow trees"
+      title={hint}
       arrow
       sx={{ display: "flex", alignItems: "center" }}
     >
@@ -18,7 +18,12 @@ export default function ProgressBar({ percentage, sx }) {
           <LinearProgress
             value={percentage}
             variant="determinate"
-            sx={{ ...sx, height: "24px", maxWidth: "100%", borderRadius: "4px" }}
+            sx={{
+              ...sx,
+              height: "24px",
+              maxWidth: "100%",
+              borderRadius: "4px",
+            }}
           />
         </Box>
         <Box

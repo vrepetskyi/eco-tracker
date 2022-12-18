@@ -118,7 +118,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
             <Tooltip
               enterTouchDelay={0}
               tabIndex={0}
-              title="we've found an article for you"
+              title="we have an article"
               arrow
               placement="bottom-end"
             >

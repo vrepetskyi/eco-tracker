@@ -13,9 +13,12 @@ const DIMENTIONS = {
 let TIMER = false;
 
 export default function Tree({ currentTree, progress, treesCompleted }) {
+  // TODO: move state fetching here
   const [currentImage, setCurrentImage] = useState(currentTree);
   const [nextImage, setNextImage] = useState(null);
   const [transition, setTransition] = useState(false);
+
+  // TODO: more animations
 
   useEffect(() => {
     if (currentTree !== currentImage) {
@@ -72,6 +75,7 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
           <ProgressBar
             sx={{ mt: 2, width: DIMENTIONS.w }}
             percentage={progress}
+            hint="grow trees by completing todos"
           />
         </Box>
       </Box>
