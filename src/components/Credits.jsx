@@ -31,10 +31,25 @@ export default function Credits() {
       </Tooltip>
 
       <Stack>
-        <Typography>- Taisia // Animator & Web Designer</Typography>
-        <Typography>- Valeria // Graphical Designer</Typography>
+        <Typography>- Taisia Leonenkova // Animator & Web Designer</Typography>
+        <Typography>
+          -{" "}
+          <Link
+            target="_blank"
+            href="https://www.instagram.com/vikakomarnutska/"
+          >
+            Viktoria Komarnytska
+          </Link>
+          {" // Graphical Designer"}
+        </Typography>
         <Typography>- Dominik Małkowiak // Developer</Typography>
-        <Typography>- Maryna Mamai // Designer & Team Leader</Typography>
+        <Typography>
+          -{" "}
+          <Link target="_blank" href="https://www.instagram.com/hurdygurdyyy/">
+            Maryna Mamai
+          </Link>
+          {" // Designer & Team Leader"}
+        </Typography>
         <Typography>
           -{" "}
           <Link target="_blank" href="https://www.linkedin.com/in/vrepetskyi/">
