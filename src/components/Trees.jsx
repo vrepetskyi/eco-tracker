@@ -48,6 +48,7 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
 
   return (
     <Container
+      id="trees"
       sx={{ alignItems: "center", position: "relative" }}
       maxWidth="sm"
     >

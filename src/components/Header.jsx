@@ -46,7 +46,7 @@ export default function Header() {
             onClose={handleCloseNavMenu}
             disableScrollLock={true}
           >
-            <MenuItem onClick={() => scrollTo("tree")}>
+            <MenuItem onClick={() => scrollTo("trees")}>
               <Typography>Trees</Typography>
             </MenuItem>
             <MenuItem onClick={() => scrollTo("todos")}>
