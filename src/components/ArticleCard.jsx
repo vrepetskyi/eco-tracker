@@ -4,7 +4,7 @@ export default function Article({ image, name, url }) {
   return (
     <Card>
       <Link
-        tabindex={-1}
+        tabIndex={-1}
         href={url}
         sx={{ display: "flex", flexDirection: "column", height: 300 }}
       >

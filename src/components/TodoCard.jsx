@@ -41,7 +41,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
     <Card>
       <Fade in={!fadeOut} timeout={500}>
         <ButtonBase
-          tabindex={-1}
+          tabIndex={-1}
           sx={{
             display: "flex",
             width: "100%",
@@ -53,7 +53,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
         >
           <Tooltip
             enterTouchDelay={0}
-            tabindex={0}
+            tabIndex={0}
             title="have you really done it?"
             arrow
             placement="bottom-start"
@@ -117,7 +117,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
           {article && (
             <Tooltip
               enterTouchDelay={0}
-              tabindex={0}
+              tabIndex={0}
               title="we've found an article for you"
               arrow
               placement="bottom-end"

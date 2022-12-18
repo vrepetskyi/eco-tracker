@@ -64,7 +64,7 @@ export default function Header() {
           </Menu>
           <Tooltip
             enterTouchDelay={0}
-            tabindex={0}
+            tabIndex={0}
             title="your guide to environmental responsibility"
             arrow
             m="auto"

@@ -4,7 +4,7 @@ export default function SectionTitle({ children, hint }) {
   return (
     <Tooltip
       enterTouchDelay={0}
-      tabindex={0}
+      tabIndex={0}
       title={hint}
       arrow
       placement="right"
