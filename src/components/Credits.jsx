@@ -21,6 +21,7 @@ export default function Credits() {
     >
       <Tooltip
         enterTouchDelay={0}
+        tabindex={0}
         title="a few words about us"
         arrow
         placement="right"
@@ -63,7 +64,11 @@ export default function Credits() {
         <Typography variant="caption">
           Source code of the project is available on
         </Typography>
-        <Link target="_blank" href="https://github.com/vrepetskyi/EcoTracker">
+        <Link
+          tabindex={-1}
+          target="_blank"
+          href="https://github.com/vrepetskyi/EcoTracker"
+        >
           <IconButton size="small" sx={{ ml: 0.5, mb: "4px" }}>
             <GitHub sx={{ height: 24, width: 24 }} />
           </IconButton>

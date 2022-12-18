@@ -8,6 +8,7 @@ export default function ProgressBar({ percentage, sx }) {
   return (
     <Tooltip
       enterTouchDelay={0}
+      tabindex={0}
       title="complete todos to grow trees"
       arrow
       sx={{ display: "flex", alignItems: "center" }}

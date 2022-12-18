@@ -78,6 +78,7 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
 
       <Tooltip
         enterTouchDelay={0}
+        tabindex={0}
         title="your full-grown trees"
         arrow
         placement="bottom-end"

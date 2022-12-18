@@ -22,6 +22,7 @@ export default function Statistics() {
     >
       <Tooltip
         enterTouchDelay={0}
+        tabindex={0}
         title="analyze your progress"
         arrow
         placement="right"

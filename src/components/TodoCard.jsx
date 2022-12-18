@@ -41,6 +41,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
     <Card>
       <Fade in={!fadeOut} timeout={500}>
         <ButtonBase
+          tabindex={-1}
           sx={{
             display: "flex",
             width: "100%",
@@ -52,12 +53,14 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
         >
           <Tooltip
             enterTouchDelay={0}
+            tabindex={0}
             title="have you really done it?"
             arrow
             placement="bottom-start"
           >
             <Box>
               <Checkbox
+                tabIndex={-1}
                 checked={complete}
                 icon={
                   <img
@@ -112,21 +115,22 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
             </Grow>
           </Typography>
           {article && (
-            <Link
-              ml="auto"
-              target="_blank"
-              href={article.url + urlQuery}
-              onClick={detailsClicked}
+            <Tooltip
+              enterTouchDelay={0}
+              tabindex={0}
+              title="we've found an article for you"
+              arrow
+              placement="bottom-end"
             >
-              <Tooltip
-                enterTouchDelay={0}
-                title="we've found an article for you"
-                arrow
-                placement="bottom-end"
+              <Link
+                ml="auto"
+                target="_blank"
+                href={article.url + urlQuery}
+                onClick={detailsClicked}
               >
                 <Typography>how?</Typography>
-              </Tooltip>
-            </Link>
+              </Link>
+            </Tooltip>
           )}
         </ButtonBase>
       </Fade>
