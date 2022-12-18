@@ -32,7 +32,7 @@ export default function Credits() {
     >
       <SectionTitle hint="a few words about us">Credits</SectionTitle>
 
-      <Stack>
+      <Stack spacing={1}>
         <TeamMemberCard
           name="Taisia Leonenkova"
           role="Animator & Web Designer"
