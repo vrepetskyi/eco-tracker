@@ -8,7 +8,7 @@ export default function Todos() {
 
   return (
     <Box id="todos" sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-      <SectionTitle hint="they'll teach you how to be eco-friendly">
+      <SectionTitle hint="they'll make you eco-friendly">
         Todos
       </SectionTitle>
 
