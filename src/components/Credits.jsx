@@ -1,13 +1,24 @@
 import { GitHub } from "@mui/icons-material";
-import {
-  Divider,
-  IconButton,
-  Link,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Divider, IconButton, Link, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import SectionTitle from "./SectionTitle";
+
+function TeamMemberCard({ name, role, link }) {
+  return (
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <Typography whiteSpace="nowrap">
+        -{" "}
+        <Link target="_blank" href={link}>
+          {name}
+        </Link>
+      </Typography>
+
+      <Typography variant="caption">{"//"}</Typography>
+
+      <Typography variant="caption">{role}</Typography>
+    </Stack>
+  );
+}
 
 export default function Credits() {
   return (
@@ -22,41 +33,35 @@ export default function Credits() {
       <SectionTitle hint="a few words about us">Credits</SectionTitle>
 
       <Stack>
-        <Typography>
-          -{" "}
-          <Link target="_blank" href="https://instagram.com/allia.ri">
-            Taisia Leonenkova
-          </Link>
-          {" // Animator & Web Designer"}
-        </Typography>
-        <Typography>
-          -{" "}
-          <Link target="_blank" href="https://instagram.com/v_komarnutska">
-            Viktoria Komarnutska
-          </Link>
-          {" // Graphical Designer"}
-        </Typography>
-        <Typography>
-          -{" "}
-          <Link target="_blank" href="https://github.com/Dominikkm">
-            Dominik Małkowiak
-          </Link>
-          {" // Developer"}
-        </Typography>
-        <Typography>
-          -{" "}
-          <Link target="_blank" href="https://www.instagram.com/hurdygurdyyy/">
-            Maryna Mamai
-          </Link>
-          {" // Designer & Team Leader"}
-        </Typography>
-        <Typography>
-          -{" "}
-          <Link target="_blank" href="https://www.linkedin.com/in/vrepetskyi/">
-            Vadym Repetskyi
-          </Link>
-          {" // Tech Leader"}
-        </Typography>
+        <TeamMemberCard
+          name="Taisia Leonenkova"
+          role="Animator & Web Designer"
+          link="https://instagram.com/allia.ri"
+        />
+
+        <TeamMemberCard
+          name="Viktoria Komarnutska"
+          role="Graphical Designer"
+          link="https://instagram.com/v_komarnutska"
+        />
+
+        <TeamMemberCard
+          name="Dominik Małkowiak"
+          role="Developer"
+          link="https://github.com/Dominikkm"
+        />
+
+        <TeamMemberCard
+          name="Maryna Mamai"
+          role="Designer, Copywriter & Team Leader"
+          link="https://www.instagram.com/hurdygurdyyy/"
+        />
+
+        <TeamMemberCard
+          name="Vadym Repetskyi"
+          role="Tech Leader"
+          link="https://www.linkedin.com/in/vrepetskyi/"
+        />
       </Stack>
 
       <Stack direction="row" alignItems="center">
@@ -64,7 +69,7 @@ export default function Credits() {
           Source code of the project is available on
         </Typography>
         <Link
-          tabindex={-1}
+          tabIndex={-1}
           target="_blank"
           href="https://github.com/vrepetskyi/EcoTracker"
         >
