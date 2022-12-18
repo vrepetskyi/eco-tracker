@@ -1,18 +1,49 @@
-import { Container, GlobalStyles } from "@mui/material";
+import React from "react";
+import { Alert, Container, Fade, GlobalStyles } from "@mui/material";
 import Trees from "./components/Trees";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
 import { useSelector } from "react-redux";
 import Statistics from "./components/Statistics";
 import Articles from "./components/Articles";
+import { pickRandomElement } from "./helpers";
 
-const TREE_STEP = 3;
-
+let previousCompletedTodosNumber = null;
 export default function App() {
-  const { completed } = useSelector((state) => state.todos);
-  console.log(completed, completed.length);
+  const {
+    completed: { length: completedTodosNumber },
+    DISPLAY_QUANTITY,
+  } = useSelector((state) => state.todos);
+  const { treeGrown: treeGrownMessages } = useSelector(
+    (state) => state.messages
+  );
+  const [isMessageDisplayed, setIsMessageDisplayed] = React.useState(false);
+  const [messageToDisplay, setMessageToDisplay] = React.useState(null);
 
-  const completedNumber = completed.length;
+  React.useEffect(() => {
+    if (previousCompletedTodosNumber === null) {
+      previousCompletedTodosNumber = completedTodosNumber;
+    }
+
+    if (
+      completedTodosNumber === previousCompletedTodosNumber ||
+      completedTodosNumber % DISPLAY_QUANTITY !== 0
+    ) {
+      return;
+    }
+
+    previousCompletedTodosNumber = completedTodosNumber;
+
+    setMessageToDisplay(pickRandomElement(treeGrownMessages));
+    setIsMessageDisplayed(true);
+
+    window.setTimeout(() => {
+      setIsMessageDisplayed(false);
+    }, 3000);
+  }, [completedTodosNumber]);
+
+  // TODO move inside of components
+  const completedNumber = completedTodosNumber;
 
   return (
     <>
@@ -46,15 +77,26 @@ export default function App() {
         sx={{ marginTop: 4, display: "flex", flexDirection: "column", gap: 4 }}
       >
         <Trees
-          currentTree={Math.floor(completedNumber / TREE_STEP) % 3}
+          currentTree={Math.floor(completedNumber / DISPLAY_QUANTITY) % 3}
           progress={Math.round(
-            ((completedNumber % TREE_STEP) / TREE_STEP) * 100
+            ((completedNumber % DISPLAY_QUANTITY) / DISPLAY_QUANTITY) * 100
           )}
-          treesCompleted={Math.floor(completedNumber / TREE_STEP)}
+          treesCompleted={Math.floor(completedNumber / DISPLAY_QUANTITY)}
         />
         <Todos />
         <Articles />
         <Statistics />
+        <Fade in={isMessageDisplayed} timeout={1000}>
+          <Alert
+            severity="success"
+            sx={{
+              position: "fixed",
+              zIndex: 1,
+            }}
+          >
+            {messageToDisplay}
+          </Alert>
+        </Fade>
       </Container>
     </>
   );
