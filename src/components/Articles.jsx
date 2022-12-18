@@ -21,6 +21,8 @@ export default function Articles() {
           Articles
         </Typography>
       </Tooltip>
+
+      {/* TODO replace with lazy-loading compatable one */}
       <Carousel>
         {articles.map((article) => (
           <ArticleCard key={article.id} {...article} />

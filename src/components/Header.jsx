@@ -65,9 +65,9 @@ export default function Header() {
             m="auto"
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <img height="32" src="logo192.png" alt="Eco Tracker logo" />
-              <Typography variant="h5" sx={{ ml: 1, mt: 1 }}>
-                Eco Tracker
+              <img height="32" src="logo192.png" alt="EcoTracker logo" />
+              <Typography variant="h5" sx={{ ml: 2, mt: 1 }}>
+                EcoTracker
               </Typography>
             </Box>
           </Tooltip>
