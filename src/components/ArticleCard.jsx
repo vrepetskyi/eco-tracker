@@ -15,6 +15,7 @@ export default function Article({ image, name, url }) {
         />
         <Typography
           m={2}
+          color="primary"
           sx={{
             fontWeight: "400",
             overflow: "hidden",

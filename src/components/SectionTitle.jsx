@@ -1,6 +1,6 @@
 import { Tooltip, Typography } from "@mui/material";
 
-export default function SectionTitle({ children, hint }) {
+export default function SectionTitle({ children, hint, ...props }) {
   return (
     <Tooltip
       enterTouchDelay={0}
@@ -8,6 +8,7 @@ export default function SectionTitle({ children, hint }) {
       title={hint}
       arrow
       placement="right"
+      {...props}
     >
       <Typography width="fit-content" variant="h6">
         {children}

@@ -70,8 +70,8 @@ export default function ActivityChart() {
     <ResponsiveContainer height={300}>
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="5 10" />
-        <XAxis dataKey="name" />
-        <YAxis allowDecimals={false} width={32} />
+        <XAxis dataKey="name" stroke="#343D25" />
+        <YAxis allowDecimals={false} width={32} stroke="#343D25" opacity={1} />
         <Tooltip />
         <Bar dataKey="tasks" fill="#EFA16C" name="Tasks completed" />
       </BarChart>

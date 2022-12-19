@@ -75,26 +75,28 @@ export default function Tree({ currentTree, progress, treesCompleted }) {
           <ProgressBar
             sx={{ mt: 2, width: DIMENTIONS.w }}
             percentage={progress}
-            hint="grow trees by completing todos"
+            hint="your daily progress"
           />
         </Box>
       </Box>
 
-      <Tooltip
-        enterTouchDelay={0}
-        tabIndex={0}
-        title="your full-grown trees"
-        arrow
-        placement="bottom-end"
-      >
-        <div className="tree_completed">
-          <img
-            src="/images/leaf-circle.png"
-            alt="completed trees counter decoration"
-          />
-          <Typography color="text.primary">{treesCompleted}</Typography>
-        </div>
-      </Tooltip>
+      {treesCompleted > 0 && (
+        <Tooltip
+          enterTouchDelay={0}
+          tabIndex={0}
+          title="days fully completed"
+          arrow
+          placement="bottom-end"
+        >
+          <div className="tree_completed">
+            <img
+              src="/images/leaf-circle.png"
+              alt="completed trees counter decoration"
+            />
+            <Typography color="text.primary">{treesCompleted}</Typography>
+          </div>
+        </Tooltip>
+      )}
     </Container>
   );
 }

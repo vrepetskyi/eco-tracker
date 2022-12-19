@@ -128,7 +128,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
                 href={article.url + urlQuery}
                 onClick={detailsClicked}
               >
-                <Typography>how?</Typography>
+                <Typography color="primary">how?</Typography>
               </Link>
             </Tooltip>
           )}
