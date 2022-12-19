@@ -1,6 +1,5 @@
 import { GitHub } from "@mui/icons-material";
 import { Divider, IconButton, Link, Stack, Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import SectionTitle from "./SectionTitle";
 
 function TeamMemberCard({ name, role, link }) {
@@ -20,17 +19,35 @@ function TeamMemberCard({ name, role, link }) {
   );
 }
 
-export default function Credits() {
+const getCopyrightYearText = () => {
+  let copyrightYearText = "2022";
+
+  const currentYearText = String(new Date().getFullYear());
+
+  if (currentYearText !== copyrightYearText) {
+    copyrightYearText += `—${currentYearText}`;
+  }
+
+  return copyrightYearText;
+};
+
+export default function Origin() {
   return (
-    <Box
-      id="credits"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 1,
-      }}
-    >
-      <SectionTitle hint="a few words about us">Credits</SectionTitle>
+    <Stack id="origin" spacing={3}>
+      <SectionTitle hint="a few words about us">Origin</SectionTitle>
+
+      <Stack
+        direction="row"
+        spacing={1}
+        px={2}
+        justifyContent="space-between"
+        divider={<Divider orientation="vertical" flexItem />}
+      >
+        <Typography variant="caption">16-18/12/22</Typography>
+        <Typography variant="caption">HackYourFuture</Typography>
+        <Typography variant="caption">CDV</Typography>
+        <Typography variant="caption">Poznań</Typography>
+      </Stack>
 
       <Stack spacing={1}>
         <TeamMemberCard
@@ -59,37 +76,34 @@ export default function Credits() {
 
         <TeamMemberCard
           name="Vadym Repetskyi"
-          role="Tech Leader"
+          role="Tech Leader & current Maintainer"
           link="https://www.linkedin.com/in/vrepetskyi/"
         />
       </Stack>
 
-      <Stack direction="row" alignItems="center">
-        <Typography variant="caption">
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <Typography variant="caption" mr="auto">
+          v1.1.0
+        </Typography>
+
+        <Typography variant="caption" textAlign="right">
           Source code of the project is available on
         </Typography>
+
         <Link
           tabIndex={-1}
           target="_blank"
           href="https://github.com/vrepetskyi/EcoTracker"
         >
-          <IconButton size="small" sx={{ ml: 0.5, mb: "4px" }}>
+          <IconButton size="small" sx={{ position: "relative", top: "-2px" }}>
             <GitHub sx={{ height: 24, width: 24 }} />
           </IconButton>
         </Link>
       </Stack>
 
-      <Stack
-        direction="row"
-        spacing={2}
-        justifyContent="space-around"
-        divider={<Divider orientation="vertical" flexItem />}
-      >
-        <Typography variant="caption">16-18/12/22</Typography>
-        <Typography variant="caption">HackYourFuture</Typography>
-        <Typography variant="caption">CDV</Typography>
-        <Typography variant="caption">Poznań</Typography>
-      </Stack>
-    </Box>
+      <Typography textAlign="center" variant="caption">
+        © Copyright Vadym Repetskyi {getCopyrightYearText()}
+      </Typography>
+    </Stack>
   );
 }
