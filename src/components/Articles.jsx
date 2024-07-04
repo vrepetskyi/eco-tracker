@@ -23,9 +23,7 @@ export default function Articles() {
       id="articles"
       sx={{ display: "flex", flexDirection: "column", gap: 1 }}
     >
-      <SectionTitle hint="some educational articles that we've found for you">
-        Articles
-      </SectionTitle>
+      <SectionTitle hint="educational sources for you">Articles</SectionTitle>
 
       {/* TODO replace with lazy-loading compatable one */}
       <Carousel>

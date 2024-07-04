@@ -1,17 +1,14 @@
-# Eco Tracker
+# [**_EcoTracker_**](https://ecotracker.vrepetskyi.codes)
 
-## How to start
+The project originated on **_December 16 2022_** from **_HackYourFuture_** event. **_v1.0.0_** represents state of the project in **_48h_** from the start. The team consisted of **_two developers_** and **_three designers_**. Its goal is **_ecological education_** in **_gamified manner_**.
 
-To start the application in the development mode use `npm run start`
+## Technologies:
 
-## Tech stack
-
-- React
-- Redux/toolkit
-- Material UI
+- React.js
+- React Redux, Redux Toolkit
+- MUI
 - Recharts
 
-## Authors
+## Features:
 
-- `Vadym Repetskyi` - Team lead
-- `Dominik Małkowiak` - Hanging around
+- Why won't you explore them by yourself? 😉

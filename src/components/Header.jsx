@@ -31,14 +31,13 @@ export default function Header() {
       id="header"
       position="sticky"
       sx={{
-        color: "#ffffff",
         backgroundColor: "secondary.main",
       }}
     >
       <Container maxWidth="sm">
         <Toolbar disableGutters>
-          <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">
-            <MenuIcon />
+          <IconButton size="large" onClick={handleOpenNavMenu}>
+            <MenuIcon color="white" />
           </IconButton>
           <Menu
             anchorEl={anchorElNav}
@@ -58,20 +57,20 @@ export default function Header() {
             <MenuItem onClick={() => scrollTo("statistics")}>
               <Typography>Statistics</Typography>
             </MenuItem>
-            <MenuItem onClick={() => scrollTo("credits")}>
-              <Typography>Credits</Typography>
+            <MenuItem onClick={() => scrollTo("origin")}>
+              <Typography>Origin</Typography>
             </MenuItem>
           </Menu>
           <Tooltip
             enterTouchDelay={0}
             tabIndex={0}
-            title="your guide to environmental responsibility"
+            title="the environmental responsibility guide"
             arrow
             m="auto"
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <img height="32" src="logo192.png" alt="EcoTracker logo" />
-              <Typography variant="h5" sx={{ ml: 2, mt: 1 }}>
+              <Typography variant="h5" color="white.main" sx={{ ml: 2, mt: 1 }}>
                 EcoTracker
               </Typography>
             </Box>

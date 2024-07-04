@@ -118,7 +118,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
             <Tooltip
               enterTouchDelay={0}
               tabIndex={0}
-              title="we've found an article for you"
+              title="we have an article"
               arrow
               placement="bottom-end"
             >
@@ -128,7 +128,7 @@ export default function Todo({ id, objective, articleId, urlQuery = "" }) {
                 href={article.url + urlQuery}
                 onClick={detailsClicked}
               >
-                <Typography>how?</Typography>
+                <Typography color="primary">how?</Typography>
               </Link>
             </Tooltip>
           )}

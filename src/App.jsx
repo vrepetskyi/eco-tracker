@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import Statistics from "./components/Statistics";
 import Articles from "./components/Articles";
 import { pickRandomElement } from "./helpers";
-import Credits from "./components/Credits";
+import Origin from "./components/Origin";
 
 let previousCompletedTodosNumber = null;
 export default function App() {
@@ -84,7 +84,7 @@ export default function App() {
         <Todos />
         <Articles />
         <Statistics />
-        <Credits />
+        <Origin />
 
         <Fade in={isMessageDisplayed} timeout={1000}>
           <Alert

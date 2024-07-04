@@ -16,9 +16,15 @@ const theme = createTheme({
     secondary: {
       main: "#6C804D",
     },
+    white: {
+      main: "#FFFFFF",
+    },
   },
   typography: {
     fontFamily: "'Josefin Sans', sans-serif",
+    allVariants: {
+      color: "#343D25",
+    },
   },
 });
 
